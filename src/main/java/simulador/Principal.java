@@ -3,10 +3,14 @@ package simulador;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import simulador.entrenador.Entrenador;
+import simulador.pokemon.Growlithe;
+import simulador.pokemon.Pokemon;
+import simulador.pokemon.TipoPokemon;
 
 public class Principal {
-    private static List<Entrenador> entrenadores = new ArrayList<>();
-    private static Scanner sc = new Scanner(System.in);
+    public static List<Entrenador> entrenadores = new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         boolean salir = false;
@@ -14,7 +18,7 @@ public class Principal {
         while (!salir) {
             mostrarMenuPrincipal();
             int opcion = sc.nextInt();
-            sc.nextLine(); // Limpiar el buffer
+            sc.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -56,7 +60,7 @@ public class Principal {
             System.out.print("Elige una opción: ");
 
             int opcion = sc.nextInt();
-            sc.nextLine(); // Limpiar el buffer
+            sc.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -95,7 +99,7 @@ public class Principal {
     private static void seleccionarEntrenador() {
         System.out.print("Introduce el número del entrenador que deseas seleccionar: ");
         int indice = sc.nextInt() - 1;
-        sc.nextLine(); // Limpiar el buffer
+        sc.nextLine();
 
         if (indice >= 0 && indice < entrenadores.size()) {
             Entrenador entrenadorSeleccionado = entrenadores.get(indice);
@@ -110,7 +114,7 @@ public class Principal {
                 System.out.print("Elige una opción: ");
 
                 int opcion = sc.nextInt();
-                sc.nextLine(); // Limpiar el buffer
+                sc.nextLine();
 
                 switch (opcion) {
                     case 1:
@@ -135,27 +139,30 @@ public class Principal {
     }
 
     private static void agregarPokemonAlEquipo(Entrenador entrenador) {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Introduce el nombre del Pokémon que deseas agregar: ");
         String nombre = sc.nextLine();
         System.out.print("Introduce la salud del Pokémon: ");
         int salud = sc.nextInt();
         System.out.print("Introduce los puntos de ataque del Pokémon: ");
         int puntosDeAtaque = sc.nextInt();
-        sc.nextLine(); // Limpiar el buffer
+        sc.nextLine();
         System.out.print("Introduce el tipo del Pokémon: ");
         String tipoStr = sc.nextLine();
         TipoPokemon tipo = TipoPokemon.valueOf(tipoStr.toUpperCase());
 
-        Pokemon nuevoPokemon = new Pokemon(nombre, salud, puntosDeAtaque, tipo);
+        // TODO: Depende del pokemon qu escojan (menú)
+        Pokemon nuevoPokemon = new Growlithe();
         entrenador.agregarPokemon(nuevoPokemon);
         System.out.println("Pokémon " + nombre + " agregado al equipo de " + entrenador.getNombre());
     }
 
     private static void entrenarPokemon(Entrenador entrenador) {
+        Scanner sc = new Scanner(System.in);
         entrenador.mostrarPokemones();
         System.out.print("Introduce el número del Pokémon que deseas entrenar: ");
         int indice = sc.nextInt() - 1;
-        sc.nextLine(); // Limpiar el buffer
+        sc.nextLine();
 
         if (indice >= 0 && indice < entrenador.getPokemones().size()) {
             Pokemon pokemon = entrenador.getPokemones().get(indice);
@@ -168,6 +175,7 @@ public class Principal {
 
     private static void gestionarPokemones() {
         boolean volver = false;
+        Scanner sc = new Scanner(System.in);
 
         while (!volver) {
             System.out.println("Gestionar Pokémones");
@@ -177,7 +185,7 @@ public class Principal {
             System.out.print("Elige una opción: ");
 
             int opcion = sc.nextInt();
-            sc.nextLine(); // Limpiar el buffer
+            sc.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -204,48 +212,51 @@ public class Principal {
     }
 
     private static void registrarNuevoPokemon() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Introduce el nombre del Pokémon: ");
         String nombre = sc.nextLine();
         System.out.print("Introduce la salud del Pokémon: ");
         int salud = sc.nextInt();
         System.out.print("Introduce los puntos de ataque del Pokémon: ");
         int puntosDeAtaque = sc.nextInt();
-        sc.nextLine(); // Limpiar el buffer
+        sc.nextLine();
         System.out.print("Introduce el tipo del Pokémon: ");
-        String tipoStr = sc.nextLine();
-        TipoPokemon tipo = TipoPokemon.valueOf(tipoStr.toUpperCase());
 
         System.out.print("Introduce el nombre del entrenador al que pertenece el Pokémon: ");
         String nombreEntrenador = sc.nextLine();
-
-        Entrenador entrenador = null;
-        for (Entrenador e : entrenadores) {
-            if (e.getNombre().equalsIgnoreCase(nombreEntrenador)) {
-                entrenador = e;
+        Entrenador entrenadorEncontrado = null;
+        
+        for (int i=0 ;i<entrenadores.size();i++){
+            Entrenador objetoEntrenador = entrenadores.get(i);
+            if(objetoEntrenador.getNombre().equals(nombreEntrenador)){
+                entrenadorEncontrado = objetoEntrenador;
                 break;
+                //i = entrenadores.size();
             }
         }
 
-        if (entrenador != null) {
-            Pokemon nuevoPokemon = new Pokemon(nombre, salud, puntosDeAtaque, tipo);
-            entrenador.agregarPokemon(nuevoPokemon);
-            System.out.println("Pokémon " + nombre + " agregado al equipo de " + entrenador.getNombre());
+        if (entrenadorEncontrado != null) {
+            // switch case
+            Pokemon nuevoPokemon = new Growlithe();
+            entrenadorEncontrado.agregarPokemon(nuevoPokemon);
+            System.out.println("Pokémon " + nombre + " agregado al equipo de " + entrenadorEncontrado.getNombre());
         } else {
             System.out.println("Entrenador no encontrado. Intenta nuevamente.");
         }
     }
 
     private static void iniciarBatalla() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Introduce el número del primer entrenador: ");
         int indice1 = sc.nextInt() - 1;
         System.out.print("Introduce el número del segundo entrenador: ");
         int indice2 = sc.nextInt() - 1;
-        sc.nextLine(); // Limpiar el buffer
+        sc.nextLine();
 
         if (indice1 >= 0 && indice1 < entrenadores.size() && indice2 >= 0 && indice2 < entrenadores.size()) {
             Entrenador entrenador1 = entrenadores.get(indice1);
             Entrenador entrenador2 = entrenadores.get(indice2);
-            // Lógica para iniciar la batalla entre entrenador1 y entrenador2
+     
             System.out.println("Batalla iniciada entre " + entrenador1.getNombre() + " y " + entrenador2.getNombre());
         } else {
             System.out.println("Índices no válidos. Intenta nuevamente.");

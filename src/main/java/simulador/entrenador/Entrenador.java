@@ -2,6 +2,7 @@ package simulador.entrenador;
 
 import java.util.ArrayList;
 import java.util.List;
+import simulador.pokemon.Pokemon;
 
 public class Entrenador {
     private String nombre;
@@ -22,6 +23,10 @@ public class Entrenador {
 
     public void agregarPokemon(Pokemon pokemon) {
         pokemones.add(pokemon);
+    }
+    
+     public void entrenarPokemon(Pokemon pokemon) {
+        
     }
 
     public void mostrarPokemones() {

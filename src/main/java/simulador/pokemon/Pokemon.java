@@ -15,7 +15,9 @@ public abstract class Pokemon {
         this.estado = "Normal";
     }
 
-    public abstract void atacar(Pokemon oponente);
+    public void atacar(Pokemon oponente){
+        
+    }
 
     public void recibirDaño(int daño) {
         this.salud -= daño;
@@ -27,7 +29,7 @@ public abstract class Pokemon {
 
     public void entrenar() {
         this.puntosDeAtaque += 5;
-        this.salud += 10;
+        this.salud += 20;
     }
 
     public String getNombre() {

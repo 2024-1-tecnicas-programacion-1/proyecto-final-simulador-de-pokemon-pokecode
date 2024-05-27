@@ -15,7 +15,7 @@ public enum TipoPokemon {
                     case AGUA, ROCA, ACERO:
                         return 0.5;
                 }
-                break;
+                
             case AGUA:
                 switch (defensor) {
                     case FUEGO, ROCA, TIERRA:
@@ -25,7 +25,7 @@ public enum TipoPokemon {
                     case PLANTA:
                         return 0.5;
                 }
-                break;
+                
             case PLANTA:
                 switch (defensor) {
                     case AGUA, ROCA, TIERRA:
@@ -35,7 +35,7 @@ public enum TipoPokemon {
                     case FUEGO, VENENO, VOLADOR, ACERO, BICHO:
                         return 0.5;
                 }
-                break;
+                
             case VENENO:
                 switch (defensor) {
                     case PLANTA, HADA:
@@ -45,7 +45,7 @@ public enum TipoPokemon {
                     case ROCA, FANTASMA:
                         return 0.5;
                 }
-                break;
+                
             case ELECTRICO:
                 switch (defensor) {
                     case AGUA, VOLADOR:
@@ -57,7 +57,7 @@ public enum TipoPokemon {
                     case TIERRA:
                         return 0;
                 }
-                break;
+                
             case PSIQUICO:
                 switch (defensor) {
                     case VENENO, LUCHA:
@@ -67,7 +67,7 @@ public enum TipoPokemon {
                     case HADA:
                         return 1;
                 }
-                break;
+                
             case ROCA:
                 switch (defensor) {
                     case FUEGO, VOLADOR, BICHO, HIELO:
@@ -77,7 +77,7 @@ public enum TipoPokemon {
                     case ACERO, LUCHA, TIERRA:
                         return 0.5;
                 }
-                break;
+                
             case TIERRA:
                 switch (defensor) {
                     case FUEGO, ELECTRICO, VENENO, ROCA, ACERO:
@@ -87,7 +87,7 @@ public enum TipoPokemon {
                     case VOLADOR:
                         return 0;
                 }
-                break;
+                
             case NORMAL:
                 switch (defensor) {
                     case ROCA, ACERO:
@@ -109,7 +109,7 @@ public enum TipoPokemon {
                 break;
             case HADA:
                 switch (defensor) {
-                    case LUCHA, DRAGON, OSCURO:
+                    case LUCHA:
                         return 2;
                     case FUEGO, VENENO, ACERO:
                         return 0.5;
@@ -118,7 +118,7 @@ public enum TipoPokemon {
                 }
             case LUCHA:
                 switch (defensor) {
-                    case NORMAL, ROCA, ACERO, HIELO, OSCURO:
+                    case NORMAL, ROCA, ACERO, HIELO:
                         return 2;
                     case VENENO, VOLADOR, PSIQUICO, BICHO, HADA:
                         return 0.5;
@@ -138,7 +138,7 @@ public enum TipoPokemon {
                 }
             case BICHO:
                 switch (defensor) {
-                    case PLANTA, PSIQUICO, OSCURO:
+                    case PLANTA, PSIQUICO:
                         return 2;
                     case FUEGO, LUCHA, VENENO, VOLADOR, FANTASMA, ACERO, HADA:
                         return 0.5;
@@ -147,7 +147,7 @@ public enum TipoPokemon {
                 }
             case HIELO:
                 switch (defensor) {
-                    case PLANTA, DRAGON, TIERRA, VOLADOR:
+                    case PLANTA, TIERRA, VOLADOR:
                         return 2;
                     case FUEGO, AGUA, ACERO:
                         return 0.5;
@@ -158,8 +158,6 @@ public enum TipoPokemon {
                 switch (defensor) {
                     case PSIQUICO, FANTASMA:
                         return 2;
-                    case OSCURO:
-                        return 0.5;
                     case NORMAL:
                         return 0;
                     default:
