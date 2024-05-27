@@ -3,32 +3,31 @@ package simulador.pokemon;
 public abstract class Pokemon {
     protected String nombre;
     protected int salud;
-    protected int puntoDeAtaque;
+    protected int puntosDeAtaque;
     protected TipoPokemon tipo;
-    protected Estado estado;
+    protected String estado;
 
-
-    public Pokemon(String nombre, int salud, int puntoDeAtaque, TipoPokemon tipo, Estado estado) {
+    public Pokemon(String nombre, int salud, int puntosDeAtaque, TipoPokemon tipo) {
         this.nombre = nombre;
         this.salud = salud;
-        this.puntoDeAtaque = puntoDeAtaque;
+        this.puntosDeAtaque = puntosDeAtaque;
         this.tipo = tipo;
-        this.estado = Estado.NORMAL;
-       
+        this.estado = "Normal";
     }
-    
-    public void atacar( Pokemon oponente){
-    int danio = (int) (this.puntoDeAtaque * tipo.obtenerMultiplicadorDeDaño(this.tipo, oponente.tipo));
-    oponente.recbibirDaño(danio);
+
+    public abstract void atacar(Pokemon oponente);
+
+    public void recibirDaño(int daño) {
+        this.salud -= daño;
+        if (this.salud <= 0) {
+            this.salud = 0;
+            this.estado = "Debilitado";
+        }
     }
-    public void recbibirDaño(int danio){
-    this.salud -= danio;
-    
-    }
-    public void entrenar (){
-        this.puntoDeAtaque +=5;
-        this.salud +=10;
-    
+
+    public void entrenar() {
+        this.puntosDeAtaque += 5;
+        this.salud += 10;
     }
 
     public String getNombre() {
@@ -39,13 +38,20 @@ public abstract class Pokemon {
         return salud;
     }
 
-    public int getPuntoDeAtaque() {
-        return puntoDeAtaque;
+    public int getPuntosDeAtaque() {
+        return puntosDeAtaque;
     }
 
     public TipoPokemon getTipo() {
         return tipo;
     }
 
-   
+    public String getEstado() {
+        return estado;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + " (Salud: " + salud + ", Ataque: " + puntosDeAtaque + ", Tipo: " + tipo + ")";
+    }
 }
