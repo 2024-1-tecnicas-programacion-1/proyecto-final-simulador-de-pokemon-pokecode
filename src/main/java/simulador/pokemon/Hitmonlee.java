@@ -8,6 +8,10 @@ package simulador.pokemon;
  *
  * @author USUARIO
  */
-public class Hitmonlee {
+public class Hitmonlee extends Pokemon {
+    
+    public Hitmonlee() {
+        super("Hitmonlee", 50, 120, TipoPokemon.LUCHA);
+    }
     
 }

@@ -8,6 +8,10 @@ package simulador.pokemon;
  *
  * @author USUARIO
  */
-public class Onix {
+public class Onix extends Pokemon {
+    
+    public Onix() {
+        super("Onix",35 , 45 , TipoPokemon.ROCA);
+    }
     
 }

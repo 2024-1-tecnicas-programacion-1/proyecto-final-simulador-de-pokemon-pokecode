@@ -8,6 +8,10 @@ package simulador.pokemon;
  *
  * @author USUARIO
  */
-public class Tentacool {
+public class Tentacool extends Pokemon {
+    
+    public Tentacool() {
+        super("Tentacool", 40, 40, TipoPokemon.VENENO);
+    }
     
 }

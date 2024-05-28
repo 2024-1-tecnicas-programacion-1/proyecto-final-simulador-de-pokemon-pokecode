@@ -8,6 +8,10 @@ package simulador.pokemon;
  *
  * @author USUARIO
  */
-public class Exeggcute {
+public class Exeggcute extends Pokemon {
+    
+    public Exeggcute() {
+        super("Exeggcute", 60, 40, TipoPokemon.PSIQUICO);
+    }
     
 }

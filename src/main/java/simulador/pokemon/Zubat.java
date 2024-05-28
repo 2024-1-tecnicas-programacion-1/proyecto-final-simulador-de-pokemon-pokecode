@@ -8,6 +8,10 @@ package simulador.pokemon;
  *
  * @author USUARIO
  */
-public class Zubat {
+public class Zubat extends Pokemon {
+    
+     public Zubat() {
+        super("Zubat", 40, 45, TipoPokemon.VENENO);
+    }
     
 }
