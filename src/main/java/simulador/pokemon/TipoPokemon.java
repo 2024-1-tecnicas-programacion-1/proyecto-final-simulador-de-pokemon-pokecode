@@ -5,6 +5,7 @@ public enum TipoPokemon {
     FUEGO, AGUA, PLANTA, VENENO, ELECTRICO, PSIQUICO, ROCA, TIERRA, NORMAL, VOLADOR, HADA, LUCHA, ACERO, BICHO, HIELO, FANTASMA;
 
     public static double obtenerMultiplicadorDeDaño(TipoPokemon atacante, TipoPokemon defensor) {
+        
         switch (atacante) {
             case FUEGO:
                 switch (defensor) {
@@ -161,9 +162,13 @@ public enum TipoPokemon {
                     case NORMAL:
                         return 0;
                     default:
-                        return 1;
+                        return 1;           
                 }
-        }
+                
+        }//Cierra Switch-Case
+        
         return 1;
-    }
-}
+        
+    }//Cierra obtenerMultiplicadorDeDaño
+    
+}//Cierra TipoPokemon
