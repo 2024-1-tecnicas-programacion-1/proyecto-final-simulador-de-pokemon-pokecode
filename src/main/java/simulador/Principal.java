@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import simulador.entrenador.Entrenador;
+import simulador.pokemon.Bellsprout;
+import simulador.pokemon.Exeggcute;
 import simulador.pokemon.Growlithe;
+import simulador.pokemon.Hitmonlee;
+import simulador.pokemon.Onix;
 import simulador.pokemon.Pokemon;
+import simulador.pokemon.Psyduck;
+import simulador.pokemon.Tentacool;
 import simulador.pokemon.TipoPokemon;
+import simulador.pokemon.Voltorb;
+import simulador.pokemon.Zubat;
 
 public class Principal {
     public static List<Entrenador> entrenadores = new ArrayList<>();
@@ -80,7 +88,7 @@ public class Principal {
             }
         }
     }
-
+    
     private static void registrarNuevoEntrenador() {
         System.out.print("Introduce el nombre del nuevo entrenador: ");
         String nombre = sc.nextLine();
@@ -139,7 +147,7 @@ public class Principal {
     }
 
     private static void agregarPokemonAlEquipo(Entrenador entrenador) {
-        Scanner sc = new Scanner(System.in);
+      
         System.out.print("Introduce el nombre del Pokémon que deseas agregar: ");
         String nombre = sc.nextLine();
         System.out.print("Introduce la salud del Pokémon: ");
@@ -158,7 +166,7 @@ public class Principal {
     }
 
     private static void entrenarPokemon(Entrenador entrenador) {
-        Scanner sc = new Scanner(System.in);
+       
         entrenador.mostrarPokemones();
         System.out.print("Introduce el número del Pokémon que deseas entrenar: ");
         int indice = sc.nextInt() - 1;
@@ -175,7 +183,7 @@ public class Principal {
 
     private static void gestionarPokemones() {
         boolean volver = false;
-        Scanner sc = new Scanner(System.in);
+       
 
         while (!volver) {
             System.out.println("Gestionar Pokémones");
@@ -212,7 +220,6 @@ public class Principal {
     }
 
     private static void registrarNuevoPokemon() {
-        Scanner sc = new Scanner(System.in);
         System.out.print("Introduce el nombre del Pokémon: ");
         String nombre = sc.nextLine();
         System.out.print("Introduce la salud del Pokémon: ");
@@ -235,18 +242,43 @@ public class Principal {
             }
         }
 
-        if (entrenadorEncontrado != null) {
-            // switch case
-            Pokemon nuevoPokemon = new Growlithe();
-            entrenadorEncontrado.agregarPokemon(nuevoPokemon);
-            System.out.println("Pokémon " + nombre + " agregado al equipo de " + entrenadorEncontrado.getNombre());
-        } else {
-            System.out.println("Entrenador no encontrado. Intenta nuevamente.");
+        
+    }
+    public static Pokemon crearPokemon(String nombre) {
+        switch (nombre) {
+            case "Growlithe":
+                return new Growlithe();
+            case "Psyduck":
+                return new Psyduck();
+            case "Bellsprout":
+                return new Bellsprout();
+            case "Voltorb":
+                return new Voltorb();
+            case "Exeggcute":
+                return new Exeggcute();
+            case "Onix":
+                return new Onix();
+            case "Zubat":
+                return new Zubat();
+            case "Farfetch'd":
+                return new Farfetchd();
+            case "Hitmonlee":
+                return new Hitmonlee();
+            case "Tentacool":
+                return new Tentacool();
+            default:
+                return null;
         }
     }
 
     private static void iniciarBatalla() {
-        Scanner sc = new Scanner(System.in);
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
+
+
+    private static void iniciarBatalla() {
+        
         System.out.print("Introduce el número del primer entrenador: ");
         int indice1 = sc.nextInt() - 1;
         System.out.print("Introduce el número del segundo entrenador: ");
