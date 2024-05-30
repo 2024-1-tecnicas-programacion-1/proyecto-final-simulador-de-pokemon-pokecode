@@ -5,8 +5,8 @@ import simulador.pokemon.Pokemon;
 
 public class Batalla {
 
-    private Entrenador entrenador1;
-    private Entrenador entrenador2;
+    private final Entrenador entrenador1;
+    private final Entrenador entrenador2;
 
     public Batalla(Entrenador entrenador1, Entrenador entrenador2) {
         this.entrenador1 = entrenador1;
@@ -14,13 +14,15 @@ public class Batalla {
     }
 
     public void iniciarBatalla() {
+        
+        //Pokemon viene dado por la clase Pokemon que es importada
+        
         Pokemon pokemon1 = entrenador1.elegirPokemon();
         Pokemon pokemon2 = entrenador2.elegirPokemon();
 
         if (pokemon1 == null || pokemon2 == null) {
             System.out.println("");
             System.out.println("Uno o ambos entrenadores no tienen Pokémon disponibles.");
-            return;
         }
         
         System.out.println("");
