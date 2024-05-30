@@ -12,7 +12,7 @@ public class Bellsprout extends Pokemon {
     
     
     public Bellsprout() {
-        super("Bellsprout", 50, 75, TipoPokemon.PLANTA);
+        super("Bellsprout", 50, 75, TipoPokemon.PLANTA_VENENO);
     }
     
 }

@@ -58,10 +58,9 @@ public class Principal {
     
     private static void mostrarMenuPrincipal() {
         
-        System.out.println("\n");
-        System.out.println("Simulador de Batallas Pokémon");
+        System.out.println(" \n Simulador de Batallas Pokemon");
         System.out.println("1. Gestionar Entrenadores");
-        System.out.println("2. Gestionar Pokémones");
+        System.out.println("2. Gestionar Pokemones");
         System.out.println("3. Iniciar Batalla");
         System.out.println("4. Salir");
         System.out.print("Elige una opcion: ");
@@ -79,9 +78,8 @@ public class Principal {
             System.out.println("1. Registrar nuevo entrenador");
             System.out.println("2. Ver lista de entrenadores");
             System.out.println("3. Seleccionar un entrenador");
-            System.out.println("4. Volver al menú principal");
-            System.out.print("Elige una opción: ");
-            System.out.println("\n");
+            System.out.println("4. Volver al menu principal");
+            System.out.print("Elige una opcion: ");
 
             int opcion = sc.nextInt();
             sc.nextLine();
@@ -100,7 +98,7 @@ public class Principal {
                     volver = true;
                     break;
                 default:
-                    System.out.println("Opción no válida. Intenta nuevamente.");
+                    System.out.println("Opcion no valida. Intenta nuevamente.");
                     
             }//Cierra Switch
             
@@ -137,7 +135,7 @@ public class Principal {
 
     private static void seleccionarEntrenador() {
         
-        System.out.print("Introduce el número del entrenador que deseas seleccionar: ");
+        System.out.print("Introduce el numero del entrenador que deseas seleccionar: ");
         int indice = sc.nextInt() - 1;
         sc.nextLine();
 
@@ -146,14 +144,13 @@ public class Principal {
             boolean volver = false;
 
             while (!volver) {
-                System.out.println("\n");
-                System.out.println("Entrenador: " + entrenadorSeleccionado.getNombre());
-                System.out.println("1. Ver equipo de Pokémones");
-                System.out.println("2. Agregar Pokémon al equipo");
-                System.out.println("3. Entrenar Pokémon");
+                
+                System.out.println("\n Entrenador: " + entrenadorSeleccionado.getNombre());
+                System.out.println("1. Ver equipo de Pokemones");
+                System.out.println("2. Agregar Pokemon al equipo");
+                System.out.println("3. Entrenar Pokemon");
                 System.out.println("4. Volver a Gestionar Entrenadores");
-                System.out.print("Elige una opción: ");
-                System.out.println("\n");
+                System.out.print("Elige una opcion: ");
 
                 int opcion = sc.nextInt();
                 sc.nextLine();
@@ -172,11 +169,11 @@ public class Principal {
                         volver = true;
                         break;
                     default:
-                        System.out.println("Opción no válida. Intenta nuevamente.");
+                        System.out.println("Opcion no valida. Intenta nuevamente.");
                 }
             }
         } else {
-            System.out.println("Índice no válido. Intenta nuevamente.");
+            System.out.println("Índice no valido. Intenta nuevamente.");
             
         }//Cierra if-else
         
@@ -185,30 +182,27 @@ public class Principal {
     
     private static void agregarPokemonAlEquipo(Entrenador entrenador) {
         
-        System.out.println("\n");
-        
-        System.out.print("Introduce el nombre del Pokémon que deseas agregar: ");
+        System.out.print("\n Introduce el nombre del Pokemon que deseas agregar: ");
         String nombre = sc.nextLine();
         
-        System.out.print("Introduce la salud del Pokémon: ");
+        System.out.print("Introduce la salud del Pokemon: ");
         int salud = sc.nextInt();
         
-        System.out.print("Introduce los puntos de ataque del Pokémon: ");
+        System.out.print("Introduce los puntos de ataque del Pokemon: ");
         int puntosDeAtaque = sc.nextInt(); 
         sc.nextLine();
         
-        System.out.print("Introduce el tipo del Pokémon: ");
+        System.out.print("Introduce el tipo del Pokemon: ");
         String tipoStr = sc.nextLine();
         
         TipoPokemon tipo = TipoPokemon.valueOf(tipoStr.toUpperCase());
         
-        System.out.println("\n");
 
         // TODO: Depende del pokemon que escojan (menú)
         
         Pokemon nuevoPokemon = new Growlithe();
         entrenador.agregarPokemon(nuevoPokemon);
-        System.out.println("Pokémon " + nombre + " agregado al equipo de " + entrenador.getNombre());
+        System.out.println("Pokemon " + nombre + " agregado al equipo de " + entrenador.getNombre());
         
     }//Cierra agregarPokemonAlEquipo
 
@@ -216,16 +210,16 @@ public class Principal {
     private static void entrenarPokemon(Entrenador entrenador) {
        
         entrenador.mostrarPokemones();
-        System.out.print("Introduce el número del Pokémon que deseas entrenar: ");
+        System.out.print("Introduce el numero del Pokemon que deseas entrenar: ");
         int indice = sc.nextInt() - 1;
         sc.nextLine();
 
         if (indice >= 0 && indice < entrenador.getPokemones().size()) {
             Pokemon pokemon = entrenador.getPokemones().get(indice);
             pokemon.entrenar();
-            System.out.println("El Pokémon " + pokemon.getNombre() + " ha sido entrenado.");
+            System.out.println("El Pokemon " + pokemon.getNombre() + " ha sido entrenado.");
         } else {
-            System.out.println("Índice no válido. Intenta nuevamente.");
+            System.out.println("Índice no valido. Intenta nuevamente.");
             
         }//Cirra if-else
         
@@ -238,11 +232,11 @@ public class Principal {
        
         while (!volver) {
             
-            System.out.println("Gestionar Pokémones");
-            System.out.println("1. Ver todos los Pokémones registrados");
-            System.out.println("2. Registrar nuevo Pokémon");
+            System.out.println("Gestionar Pokemones");
+            System.out.println("1. Ver todos los Pokemones registrados");
+            System.out.println("2. Registrar nuevo Pokemon");
             System.out.println("3. Volver al menú principal");
-            System.out.print("Elige una opción: ");
+            System.out.print("Elige una opcion: ");
 
             int opcion = sc.nextInt();
             sc.nextLine();
@@ -258,7 +252,7 @@ public class Principal {
                     volver = true;
                     break;
                 default:
-                    System.out.println("Opción no válida. Intenta nuevamente.");
+                    System.out.println("Opcion no valida. Intenta nuevamente.");
                     
             }//Cierra gestionarPokemones
             
@@ -269,7 +263,7 @@ public class Principal {
     
     private static void verTodosLosPokemones() {
         
-        System.out.println("Pokémones registrados:");
+        System.out.println("Pokemones registrados:");
         
         for (Entrenador entrenador : entrenadores) {
             System.out.println("Entrenador: " + entrenador.getNombre());
@@ -282,18 +276,18 @@ public class Principal {
     
     private static void registrarNuevoPokemon() {
         
-        System.out.print("Introduce el nombre del Pokémon: ");
+        System.out.print("Introduce el nombre del Pokemon: ");
         String nombre = sc.nextLine();
         
-        System.out.print("Introduce la salud del Pokémon: ");
+        System.out.print("Introduce la salud del Pokemon: ");
         int salud = sc.nextInt();
         
-        System.out.print("Introduce los puntos de ataque del Pokémon: ");
+        System.out.print("Introduce los puntos de ataque del Pokemon: ");
         int puntosDeAtaque = sc.nextInt(); 
         sc.nextLine();
-        System.out.print("Introduce el tipo del Pokémon: ");
+        System.out.print("Introduce el tipo del Pokemon: ");
 
-        System.out.print("Introduce el nombre del entrenador al que pertenece el Pokémon: ");
+        System.out.print("Introduce el nombre del entrenador al que pertenece el Pokemon: ");
         String nombreEntrenador = sc.nextLine();
         
         Entrenador entrenadorEncontrado = null;
