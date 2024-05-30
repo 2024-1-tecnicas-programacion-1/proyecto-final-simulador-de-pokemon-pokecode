@@ -14,10 +14,15 @@ public class Batalla {
             if (pokemon2.getSalud() > 0) {
                 pokemon2.atacar(pokemon1);
                 
-            }//Cierra if
-            
-        }//Cierra While
+            }
+        }
         
-    }//Cierra iniciarBatalla
-    
-}//Cierra Batalla
+        if (pokemon1.getSalud() <= 0) {
+            System.out.println(pokemon1.getNombre() + " ha sido derrotado.");
+        }
+        
+        if (pokemon2.getSalud() <= 0) {
+            System.out.println(pokemon2.getNombre() + " ha sido derrotado.");
+        }
+    }
+}
