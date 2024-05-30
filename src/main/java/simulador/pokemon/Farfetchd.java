@@ -1,12 +1,9 @@
-
 package simulador.pokemon;
 
-public class Farfetchd extends Pokemon{
-    
+public class Farfetchd extends Pokemon {
     public Farfetchd() {
-        super("Farfetchd", 52, 90, TipoPokemon.NORMAL);
+        super("Farfetch'd", 52, 65, TipoPokemon.NORMAL, TipoPokemon.VOLADOR);
     }
-    
 }
 
                                                         //⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⡠⠖⢉⣌⢆⠀⠀⠀⠀⠀

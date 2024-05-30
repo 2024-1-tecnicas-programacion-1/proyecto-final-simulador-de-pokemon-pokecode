@@ -2,9 +2,19 @@ package simulador.pokemon;
 
 
 public enum TipoPokemon {
-    FUEGO, AGUA, PLANTA, VENENO, PLANTA_VENENO, ELECTRICO, PSIQUICO, ROCA, TIERRA, NORMAL, VOLADOR, HADA, LUCHA, ACERO, BICHO, HIELO, FANTASMA;
+    FUEGO, AGUA, PLANTA, VENENO, ELECTRICO, PSIQUICO, ROCA, TIERRA, NORMAL, VOLADOR, HADA, LUCHA, ACERO, BICHO, HIELO, FANTASMA;
 
-    public static double obtenerMultiplicadorDeDaño(TipoPokemon atacante, TipoPokemon defensor) {
+ public static double obtenerMultiplicadorDeDaño(TipoPokemon[] atacantes, TipoPokemon[] defensores) {
+        double multiplicador = 1.0;
+        for (TipoPokemon atacante : atacantes) {
+            for (TipoPokemon defensor : defensores) {
+                multiplicador *= obtenerMultiplicadorDeDaño(atacante, defensor);
+            }
+        }
+        return multiplicador;
+    }
+ 
+  private static double obtenerMultiplicadorDeDaño(TipoPokemon atacante, TipoPokemon defensor) {
         
         switch (atacante) {
             case FUEGO:
@@ -44,16 +54,6 @@ public enum TipoPokemon {
                     case FUEGO, AGUA, ELECTRICO, PSIQUICO, TIERRA, NORMAL, VOLADOR, LUCHA, ACERO, BICHO, HIELO:
                         return 1;
                     case ROCA, FANTASMA:
-                        return 0.5;
-                }
-                
-            case PLANTA_VENENO:
-                switch (defensor) {
-                    case AGUA, ROCA, TIERRA, PLANTA, HADA:
-                        return 2;
-                    case FUEGO, ELECTRICO, PSIQUICO, NORMAL, VOLADOR, LUCHA, ACERO, BICHO, HIELO:
-                        return 1;
-                    case FANTASMA:
                         return 0.5;
                 }
                 
