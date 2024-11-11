@@ -19,7 +19,7 @@ public class Entrenador {
         if (pokemones.size() < 6) {
             pokemones.add(pokemon);
         } else {
-            System.out.println("El equipo ya está completo. No se puede agregar más Pokemones.");
+            System.out.println("El equipo ya esta completo. No se puede agregar mas Pokemones.");
         }
     }
 
@@ -34,13 +34,13 @@ public class Entrenador {
         mostrarPokemones();
         if (!pokemones.isEmpty()) {
             Scanner sc = new Scanner(System.in);
-            System.out.print("Selecciona el número del Pokemon para la batalla: ");
+            System.out.print("Selecciona el numero del Pokemon para la batalla: ");
             int indice = sc.nextInt() - 1;
 
             if (indice >= 0 && indice < pokemones.size()) {
                 return pokemones.get(indice);
             } else {
-                System.out.println("Índice no válido. Seleccionando el primer Pokemon.");
+                System.out.println("indice no valido. Seleccionando el primer Pokemon.");
                 return pokemones.get(0);
             }
         } else {
@@ -55,9 +55,5 @@ public class Entrenador {
 
     public List<Pokemon> getPokemones() {
         return pokemones;
-    }
-
-    public Pokemon getPokemon() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -48,7 +48,7 @@ public class Principal {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción no valida. Intenta nuevamente.");
+                    System.out.println("Opcion no valida. Intenta nuevamente.");
             }
         }
     }
@@ -121,8 +121,7 @@ public class Principal {
         System.out.println("");
         System.out.println("");
         System.out.println("Lista de entrenadores registrados:");
-        
-        // El for recorre el array y muestra los entrenadores uno por uno
+     
         
         for (int i = 0; i < entrenadores.size(); i++) {
             System.out.println((i + 1) + ". " + entrenadores.get(i).getNombre());
@@ -174,7 +173,7 @@ public class Principal {
             }
         } else {
             System.out.println("");
-            System.out.println("Índice no valido. Intenta nuevamente.");
+            System.out.println("indice no valido. Intenta nuevamente.");
         }
     }
 
@@ -219,7 +218,7 @@ public class Principal {
                 System.out.println("El Pokemon " + pokemon.getNombre() + " ha sido entrenado.");
             } else {
                 System.out.println("");
-                System.out.println("Índice no valido. Intenta nuevamente.");
+                System.out.println("indice no valido. Intenta nuevamente.");
             }
         }
 
@@ -300,7 +299,7 @@ public class Principal {
                 }
             } else {
                 System.out.println("");
-                System.out.println("Pokemon no válido. Intenta nuevamente.");
+                System.out.println("Pokemon no valido. Intenta nuevamente.");
             }
         }
     
@@ -334,34 +333,64 @@ public class Principal {
     
 
         private static void iniciarBatalla() {
-            System.out.println("");
-            System.out.println("");
-            System.out.print("Introduce el número del primer entrenador: ");
-            int indice1 = sc.nextInt() - 1;
-            System.out.println("");
-            System.out.println("");
-            System.out.print("Introduce el número del segundo entrenador: ");
-            int indice2 = sc.nextInt() - 1;
-    
-            sc.nextLine();
-    
-            if (indice1 >= 0 && indice1 < entrenadores.size() && indice2 >= 0 && indice2 < entrenadores.size()) {
-                Entrenador entrenador1 = entrenadores.get(indice1);
-                Entrenador entrenador2 = entrenadores.get(indice2);
-    
-                Pokemon pokemon1 = entrenador1.elegirPokemon();
-                Pokemon pokemon2 = entrenador2.elegirPokemon();
-    
-                if (pokemon1 != null && pokemon2 != null) {
-                    Batalla batalla = new Batalla(entrenador1, entrenador2);
-                    batalla.iniciarBatalla();
-                } else {
-                    System.out.println("");
-                    System.out.println("Uno o ambos entrenadores no tienen Pokemones disponibles.");
-                }
-            } else {
-                System.out.println("");
-                System.out.println("Índices de entrenadores no válidos. Intenta nuevamente.");
-            }
+    System.out.println("");
+    System.out.println("Introduce el nombre del primer entrenador: ");
+    String nombreEntrenador1 = sc.nextLine();
+    Entrenador entrenador1 = buscarEntrenadorPorNombre(nombreEntrenador1);
+
+    if (entrenador1 == null) {
+        System.out.println("Entrenador no encontrado. Asegurate de registrar al entrenador primero.");
+        return;
+    }
+
+    System.out.println("");
+    System.out.println("Introduce el nombre del segundo entrenador: ");
+    String nombreEntrenador2 = sc.nextLine();
+
+    if (nombreEntrenador2.equals(nombreEntrenador1)) {
+        System.out.println("Este entrenador ya fue registrado para el combate. Elige otro entrenador.");
+        return;
+    }
+
+    Entrenador entrenador2 = buscarEntrenadorPorNombre(nombreEntrenador2);
+
+    if (entrenador2 == null) {
+        System.out.println("Entrenador no encontrado. Asegúrate de registrar al entrenador primero.");
+        return;
+    }
+
+    // Selección de Pokémon de cada entrenador
+    System.out.println("Pokemones de " + entrenador1.getNombre() + ":");
+    entrenador1.mostrarPokemones();
+    System.out.print("Selecciona el numero del Pokemon para la batalla: ");
+    int indicePokemon1 = sc.nextInt() - 1;
+    sc.nextLine();
+    Pokemon pokemon1 = entrenador1.getPokemones().get(indicePokemon1);
+
+    System.out.println("Pokemones de " + entrenador2.getNombre() + ":");
+    entrenador2.mostrarPokemones();
+    System.out.print("Selecciona el numero del Pokemon para la batalla: ");
+    int indicePokemon2 = sc.nextInt() - 1;
+    sc.nextLine();
+    Pokemon pokemon2 = entrenador2.getPokemones().get(indicePokemon2);
+
+    if (pokemon1 != null && pokemon2 != null) {
+        Batalla batalla = new Batalla(entrenador1, entrenador2);
+        batalla.iniciarBatalla();
+    } else {
+        System.out.println("");
+        System.out.println("Uno o ambos entrenadores no tienen Pokemones disponibles.");
+    }
+}
+
+
+    private static Entrenador buscarEntrenadorPorNombre(String nombre) {
+    for (Entrenador entrenador : entrenadores) {
+        if (entrenador.getNombre().equalsIgnoreCase(nombre)) {
+            return entrenador;
         }
     }
+    return null;
+}
+    }
+

@@ -1,16 +1,15 @@
 package simulador.pokemon;
 
+import java.util.Arrays;
+
 public abstract class Pokemon {
 
-   
     protected String nombre;
     protected int salud;
     protected int puntosDeAtaque;
     protected TipoPokemon[] tipos;
     protected String estado;
 
-
-    
     public Pokemon(String nombre, int salud, int puntosDeAtaque, TipoPokemon... tipos) {
         this.nombre = nombre;
         this.salud = salud;
@@ -21,7 +20,6 @@ public abstract class Pokemon {
 
     public void atacar(Pokemon oponente) {
         double multiplicador = TipoPokemon.obtenerMultiplicadorDeDaño(this.tipos, oponente.getTipos());
-        
         int daño = (int) (this.puntosDeAtaque * multiplicador);
         oponente.recibirDaño(daño);
         System.out.println("");
@@ -61,4 +59,12 @@ public abstract class Pokemon {
         return estado;
     }
 
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + 
+               ", Salud: " + salud + 
+               ", Puntos de Ataque: " + puntosDeAtaque + 
+               ", Tipos: " + Arrays.toString(tipos) + 
+               ", Estado: " + estado;
+    }
 }

@@ -22,7 +22,7 @@ public class Batalla {
 
         if (pokemon1 == null || pokemon2 == null) {
             System.out.println("");
-            System.out.println("Uno o ambos entrenadores no tienen Pokémon disponibles.");
+            System.out.println("Uno o ambos entrenadores no tienen Pokemon disponibles.");
         }
         
         System.out.println("");
@@ -41,13 +41,13 @@ public class Batalla {
 
         if (pokemon1.getSalud() > 0) {
             System.out.println("");
-            System.out.println(entrenador1.getNombre() + " ha ganado la batalla con " + pokemon1.getNombre() + " aún en pie.");
+            System.out.println(entrenador1.getNombre() + " ha ganado la batalla con " + pokemon1.getNombre() + " aun en pie.");
         } else if (pokemon2.getSalud() > 0) {
             System.out.println("");
-            System.out.println(entrenador2.getNombre() + " ha ganado la batalla con " + pokemon2.getNombre() + " aún en pie.");
+            System.out.println(entrenador2.getNombre() + " ha ganado la batalla con " + pokemon2.getNombre() + " aun en pie.");
         } else {
             System.out.println("");
-            System.out.println("La batalla terminó en empate, ambos Pokémon están debilitados.");
+            System.out.println("La batalla termino en empate, ambos Pokemon están debilitados.");
         }
     }
 }
