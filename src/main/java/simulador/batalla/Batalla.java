@@ -15,7 +15,7 @@ public class Batalla {
 
     public void iniciarBatalla() {
         
-        //Pokemon viene dado por la clase Pokemon que es importada
+
         
         Pokemon pokemon1 = entrenador1.elegirPokemon();
         Pokemon pokemon2 = entrenador2.elegirPokemon();

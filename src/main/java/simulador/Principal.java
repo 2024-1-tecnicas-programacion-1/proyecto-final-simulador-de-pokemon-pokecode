@@ -19,18 +19,16 @@ import simulador.batalla.Batalla;
 
 public class Principal {
 
-    // Lista para almacenar entrenadores
     public static List<Entrenador> entrenadores = new ArrayList<>();
 
-    // Scanner para la entrada del usuario
     static Scanner sc = new Scanner(System.in);
 
-    // Método principal que inicia la aplicación
+ 
     public static void main(String[] args) {
 
         boolean salir = false;
 
-        // Bucle principal del menú
+    
         while (!salir) {
             mostrarMenuPrincipal();
             int opcion = sc.nextInt();
@@ -55,7 +53,7 @@ public class Principal {
         }
     }
 
-    // Método para mostrar el menú principal
+ 
     private static void mostrarMenuPrincipal() {
         System.out.println("");
         System.out.println("");
@@ -67,7 +65,6 @@ public class Principal {
         System.out.print("Elige una opcion: ");
     }
 
-    // Método para gestionar los entrenadores
     private static void gestionarEntrenadores() {
         boolean volver = false;
 
@@ -103,7 +100,7 @@ public class Principal {
         }
     }
 
-    // Método para registrar un nuevo entrenador
+
     private static void registrarNuevoEntrenador() {
         
         System.out.println("");
@@ -111,7 +108,7 @@ public class Principal {
         System.out.print("Introduce el nombre del nuevo entrenador: ");
         String nombre = sc.nextLine();
         
-        //Registro de un nuevo entrenador
+
         
         Entrenador objetoEntrenador = new Entrenador(nombre);
         entrenadores.add(objetoEntrenador);
@@ -119,7 +116,6 @@ public class Principal {
         System.out.println("Entrenador " + nombre + " registrado exitosamente.");
     }
 
-    // Método para ver la lista de entrenadores
     private static void verListaDeEntrenadores() {
         
         System.out.println("");
@@ -133,7 +129,7 @@ public class Principal {
         }
     }
 
-    // Método para seleccionar un entrenador y realizar operaciones relacionadas con él
+ 
     private static void seleccionarEntrenador() {
         System.out.println("");
         System.out.println("");
@@ -182,7 +178,7 @@ public class Principal {
         }
     }
 
-    // Método para agregar un Pokémon al equipo de un entrenador
+
     private static void agregarPokemonAlEquipo(Entrenador entrenador) {
         System.out.println("");
         System.out.println("");
@@ -205,7 +201,7 @@ public class Principal {
         }
     }
     
-    // Método para entrenar a un Pokémon de un entrenador
+
         private static void entrenarPokemon(Entrenador entrenador) {
             entrenador.mostrarPokemones();
             System.out.println("");
@@ -227,7 +223,7 @@ public class Principal {
             }
         }
 
-        // Método para gestionar los Pokemones
+
         private static void gestionarPokemones() {
             boolean volver = false;
     
@@ -260,7 +256,7 @@ public class Principal {
             }
         }
 
-        // Método para ver todos los Pokemones registrados
+
         private static void verTodosLosPokemones() {
             System.out.println("");
             System.out.println("");
@@ -272,7 +268,7 @@ public class Principal {
             }
         }
 
-        // Método para registrar un nuevo Pokemon
+ 
         private static void registrarNuevoPokemon() {
             System.out.println("");
             System.out.println("");
@@ -308,7 +304,7 @@ public class Principal {
             }
         }
     
-        // Método para crear un nuevo Pokemon según su nombre
+
         public static Pokemon crearPokemon(String nombre) {
             switch (nombre) {
                 case "Growlithe":
@@ -336,7 +332,7 @@ public class Principal {
             }
         }
     
-        // Método para iniciar una batalla entre dos entrenadores
+
         private static void iniciarBatalla() {
             System.out.println("");
             System.out.println("");

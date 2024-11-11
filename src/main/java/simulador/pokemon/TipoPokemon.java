@@ -175,10 +175,10 @@ public enum TipoPokemon {
                         return 1;           
                 }
                 
-        }//Cierra Switch-Case
+        }
         
         return 1;
         
-    }//Cierra obtenerMultiplicadorDeDaño
+    }
     
-}//Cierra TipoPokemon
+}
