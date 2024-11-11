@@ -359,7 +359,7 @@ public class Principal {
         return;
     }
 
-    // Selección de Pokémon de cada entrenador
+ 
     System.out.println("Pokemones de " + entrenador1.getNombre() + ":");
     entrenador1.mostrarPokemones();
     System.out.print("Selecciona el numero del Pokemon para la batalla: ");

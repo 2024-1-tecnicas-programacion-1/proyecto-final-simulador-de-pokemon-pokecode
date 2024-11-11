@@ -23,7 +23,7 @@ public abstract class Pokemon {
         int daño = (int) (this.puntosDeAtaque * multiplicador);
         oponente.recibirDaño(daño);
         System.out.println("");
-        System.out.println(this.nombre + " ataca a " + oponente.getNombre() + " causando " + daño + " puntos de daño.");
+        System.out.println(this.nombre + " ataca a " + oponente.getNombre() + " causando " + daño + " puntos de damage.");
     }
 
     public void recibirDaño(int daño) {
