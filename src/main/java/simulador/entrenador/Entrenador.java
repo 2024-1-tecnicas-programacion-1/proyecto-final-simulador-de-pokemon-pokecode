@@ -40,7 +40,7 @@ public class Entrenador {
             if (indice >= 0 && indice < pokemones.size()) {
                 return pokemones.get(indice);
             } else {
-                System.out.println("indice no valido. Seleccionando el primer Pokemon.");
+                System.out.println("Indice no valido. Seleccionando el primer Pokemon.");
                 return pokemones.get(0);
             }
         } else {
@@ -55,5 +55,11 @@ public class Entrenador {
 
     public List<Pokemon> getPokemones() {
         return pokemones;
+    }
+
+    public Pokemon getPokemon() {
+      
+        return null;
+      
     }
 }

@@ -26,7 +26,7 @@ public class Batalla {
         }
         
         System.out.println("");
-        System.out.println("¡Comienza la batalla entre " + entrenador1.getNombre() + " y " + entrenador2.getNombre() + "!");
+        System.out.println("Comienza la batalla entre " + entrenador1.getNombre() + " y " + entrenador2.getNombre() + "!");
         System.out.println("");
         System.out.println(entrenador1.getNombre() + " elige a " + pokemon1.getNombre());
         System.out.println("");
