@@ -1,9 +1,10 @@
-package simulador;
+package simulador.pokemon;
 
+import simulador.entrenador.Entrenador;
+import simulador.batalla.Batalla;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import simulador.entrenador.Entrenador;
 import simulador.pokemon.Bellsprout;
 import simulador.pokemon.Exeggcute;
 import simulador.pokemon.Farfetchd;
@@ -15,7 +16,6 @@ import simulador.pokemon.Psyduck;
 import simulador.pokemon.Tentacool;
 import simulador.pokemon.Voltorb;
 import simulador.pokemon.Zubat;
-import simulador.batalla.Batalla;
 
 public class Principal {
 

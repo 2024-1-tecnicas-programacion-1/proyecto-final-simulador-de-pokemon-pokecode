@@ -2,6 +2,7 @@ package simulador.batalla;
 
 import simulador.entrenador.Entrenador;
 import simulador.pokemon.Pokemon;
+import simulador.pokemon.Pokemon;
 
 public class Batalla {
 

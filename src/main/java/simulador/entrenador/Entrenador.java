@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import simulador.pokemon.Pokemon;
+import simulador.pokemon.Pokemon;
 
 public class Entrenador {
 
